@@ -15,14 +15,14 @@ Wyświetlanie wiadomości: Możesz użyć polecenia console.log(), aby wyświetl
 
 ```javascript
 console.log('Witaj w konsoli JavaScript!');
-Efekt: W konsoli pojawi się wiadomość "Witaj w konsoli JavaScript!".
+//Efekt: W konsoli pojawi się wiadomość "Witaj w konsoli JavaScript!".
 ```
 
 Wykonywanie operacji matematycznych: Możesz bezpośrednio wykonywać operacje matematyczne w konsoli.
 
 ```javascript
 2 + 2
-Efekt: Konsola wyświetli wynik 4.
+//Efekt: Konsola wyświetli wynik 4.
 ```
 
 Definiowanie zmiennych i funkcji: Możesz deklarować zmienne i tworzyć funkcje bezpośrednio w konsoli.
