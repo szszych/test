@@ -49,8 +49,6 @@ DOM pozwala na dynamiczne zmiany na stronie bez przeładowania. Dzięki niemu mo
 * reagować na działania użytkownika (np. kliknięcia)
 * zmieniać style (kolory, rozmiary itp.)
 
-
-
 Przykład: W DOM możemy zmienić zawartość nagłówka na stronie bez przeładowania strony.
 ```javascript
 document.querySelector('h1').textContent = "Zmieniono nagłówek!";

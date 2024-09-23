@@ -1,0 +1,172 @@
+Aby dynamicznie dodawać elementy do DOM za pomocą JavaScript, musisz wykonać kilka kroków. Oto szczegółowy opis z przykładami:
+
+### Kroki do dynamicznego dodawania elementów do DOM:
+
+1. **Utwórz nowy element** – Użyj metody `document.createElement()`, aby stworzyć nowy element HTML.
+2. **Dodaj treść lub atrybuty** – Wypełnij nowy element treścią lub dodaj mu odpowiednie atrybuty, np. klasę CSS.
+3. **Wstaw element do DOM** – Użyj metody `appendChild()` lub `insertBefore()`, aby dodać nowy element do istniejącego elementu w DOM.
+
+### Przykłady dynamicznego dodawania elementów do DOM:
+
+#### 1. **Dodanie nowego paragrafu**
+Dodamy nowy paragraf do elementu `<body>`.
+
+```javascript
+// Krok 1: Utworzenie nowego elementu <p>
+let newParagraph = document.createElement('p');
+
+// Krok 2: Dodanie tekstu do paragrafu
+newParagraph.textContent = 'To jest nowo dodany paragraf!';
+
+// Krok 3: Dodanie elementu <p> do <body>
+document.body.appendChild(newParagraph);
+```
+
+#### 2. **Dodanie nowego elementu z klasą CSS**
+Stworzymy przycisk z klasą CSS i dodamy go do elementu `div`.
+
+```javascript
+// Krok 1: Utworzenie nowego elementu <button>
+let newButton = document.createElement('button');
+
+// Krok 2: Dodanie tekstu i klasy CSS do przycisku
+newButton.textContent = 'Kliknij mnie!';
+newButton.classList.add('btn', 'btn-primary');
+
+// Krok 3: Znalezienie elementu <div>, do którego dodamy przycisk
+let container = document.querySelector('div');
+
+// Krok 4: Dodanie przycisku do elementu <div>
+container.appendChild(newButton);
+```
+
+#### 3. **Dodanie elementu listy do istniejącej listy**
+Stworzymy nowy element listy (`<li>`) i dodamy go do istniejącej listy (`<ul>`).
+
+```javascript
+// Krok 1: Utworzenie nowego elementu listy <li>
+let newListItem = document.createElement('li');
+
+// Krok 2: Dodanie tekstu do elementu <li>
+newListItem.textContent = 'Nowy element listy';
+
+// Krok 3: Znalezienie istniejącej listy <ul>
+let list = document.querySelector('ul');
+
+// Krok 4: Dodanie nowego elementu <li> do listy <ul>
+list.appendChild(newListItem);
+```
+
+#### 4. **Dodanie wielu elementów dynamicznie**
+Możemy także dodawać wiele elementów w pętli. Na przykład, stworzymy listę owoców i dodamy je do DOM.
+
+```javascript
+let fruits = ['Jabłko', 'Banana', 'Gruszka'];
+let ul = document.createElement('ul'); // Tworzymy pustą listę <ul>
+
+fruits.forEach(function(fruit) {
+    let li = document.createElement('li'); // Tworzymy nowy element <li> dla każdego owocu
+    li.textContent = fruit;
+    ul.appendChild(li); // Dodajemy <li> do listy <ul>
+});
+
+// Dodajemy całą listę <ul> do <body>
+document.body.appendChild(ul);
+```
+
+#### 5. **Dodanie elementu przed innym elementem**
+Możesz wstawić nowy element przed istniejącym elementem w DOM za pomocą metody `insertBefore()`.
+
+```javascript
+// Krok 1: Utworzenie nowego elementu <h2>
+let newHeading = document.createElement('h2');
+newHeading.textContent = 'To jest nowy nagłówek';
+
+// Krok 2: Znalezienie istniejącego elementu przed którym chcemy wstawić nowy element
+let existingElement = document.querySelector('p'); // Przykład: element <p>
+
+// Krok 3: Znalezienie rodzica istniejącego elementu
+let parent = existingElement.parentNode;
+
+// Krok 4: Wstawienie nowego elementu przed istniejącym
+parent.insertBefore(newHeading, existingElement);
+```
+
+### Podsumowanie:
+
+- **`createElement()`** – Tworzy nowy element HTML.
+- **`textContent` lub `innerHTML`** – Dodaje treść do nowego elementu.
+- **`appendChild()`** – Dodaje nowy element jako ostatnie dziecko do istniejącego elementu.
+- **`insertBefore()`** – Wstawia nowy element przed innym elementem.
+- **`classList.add()`** – Dodaje klasy CSS do nowego elementu.
+
+Dzięki tym metodom możesz dynamicznie zmieniać stronę internetową, dodając nowe treści i elementy w odpowiedzi na działania użytkownika.
+
+### Krótkie wprowadzenie do CSS
+
+**CSS (Cascading Style Sheets)** to język, który służy do opisywania wyglądu stron internetowych. Dzięki CSS możesz kontrolować układ, kolory, czcionki, odstępy i wiele innych aspektów wizualnych elementów HTML.
+
+#### Jak działa CSS?
+
+CSS działa, wybierając elementy HTML na stronie i przypisując im odpowiednie style. Możesz definiować wygląd jednego elementu, grupy elementów lub całej strony.
+
+#### Przykłady zastosowań CSS:
+
+1. **Zmienianie koloru tekstu**:
+   ```css
+   h1 {
+     color: blue;
+   }
+   ```
+
+2. **Zmienianie rozmiaru czcionki**:
+   ```css
+   p {
+     font-size: 18px;
+   }
+   ```
+
+3. **Dodawanie marginesów**:
+   ```css
+   div {
+     margin: 20px;
+   }
+   ```
+
+#### Podstawowe zasady CSS:
+
+1. **Selektory** – Określają, które elementy HTML będą stylowane.
+   - **Tag**: `p {}` – stylowanie wszystkich elementów `<p>`.
+   - **Klasa**: `.classname {}` – stylowanie elementów z określoną klasą, np. `<div class="classname">`.
+   - **Identyfikator**: `#idname {}` – stylowanie elementu o określonym ID, np. `<div id="idname">`.
+
+2. **Właściwości i wartości** – Definiują, jak element ma wyglądać. Każdy element CSS składa się z właściwości (np. `color`) i przypisanej do niej wartości (np. `blue`).
+   ```css
+   h1 {
+     color: red;
+     font-size: 24px;
+   }
+   ```
+
+#### Jak dodać CSS do strony?
+
+1. **Wewnętrznie** w pliku HTML w sekcji `<style>`:
+   ```html
+   <style>
+     p {
+       color: green;
+     }
+   </style>
+   ```
+
+2. **Zewnętrznie** w osobnym pliku CSS:
+   ```html
+   <link rel="stylesheet" href="style.css">
+   ```
+
+3. **Inline** bezpośrednio w tagu HTML:
+   ```html
+   <p style="color: red;">Tekst</p>
+   ```
+
+CSS to potężne narzędzie do kontrolowania wyglądu i układu stron, dzięki czemu można tworzyć atrakcyjne i responsywne strony internetowe.
