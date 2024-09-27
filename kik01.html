@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Formularz Logowania</title>
+</head>
+<body>
+    <h1 id="krok">0</h1>
+    <button class="btn btn-primary m-1 p-4" id="b1">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b2">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b3">&nbsp;</button><br/>
+    <button class="btn btn-primary m-1 p-4" id="b4">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b5">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b6">&nbsp;</button><br/>
+    <button class="btn btn-primary m-1 p-4" id="b7">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b8">&nbsp;</button>
+    <button class="btn btn-primary m-1 p-4" id="b9">&nbsp;</button>
+    <script>
+        
+        function czy_wygrana(runda) {
+          const wygrane = [
+            "012",
+            "345",
+            "678",
+            "036",
+            "147",
+            "258",
+            "246",
+            "048"
+          ];
+          wygrane.forEach((el)=> {
+            if(runda.join("").includes(el)){return true;}
+          });
+        }
+
+        function gra_runda(runda){
+          rundaX = [];
+          rundaY = [];
+            runda.forEach((element,index) => {
+              if (!(index%2)){
+                rundaX.push(element)
+              } else {
+                rundaY.push(element)
+              }
+            
+            });
+            
+            if (czy_wygrana(rundaX.sort())) {alert("wygrał X");}
+            if (czy_wygrana(rundaY.sort())) {alert("wygrał O");}
+        }
+
+
+        
+        function gra() {
+          let runda = [];
+          let krok = 1;
+          let gracze = ["x","o"];
+          let plansza = document.querySelectorAll("button");
+          plansza.forEach((el,index)=>{
+              el.addEventListener("click",(e)=>{
+                  if (krok<=9){                    
+                      krok = krok+1;
+                      el.innerText=gracze[krok%2];
+                      runda.push(index);                      
+                      gra_runda(runda);
+                  } 
+              })
+          });
+        }
+
+
+
+        gra();
+              
+
+    </script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>
