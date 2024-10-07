@@ -1,0 +1,15 @@
+*{
+    font-family: Garamond;
+    background-color: mistyrose;
+    color: rgb(62,39,35);
+}
+
+
+
+
+table {
+    border: 1px solid;
+    border-color: black;
+    border-style: dashed;
+    text-align: center;
+}
